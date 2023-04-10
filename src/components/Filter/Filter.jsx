@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux"
 import { setFilter } from "redux/filterSlice";
-import { getFilter } from "redux/selectors"
+import { selectFilter } from "redux/selectors"
 
 
 export const Filter = () => {
-    const filterQuery = useSelector(getFilter);
+    const filterQuery = useSelector(selectFilter);
     const dispatch = useDispatch();
 
     const onFilterChange = e => dispatch(setFilter(e.currentTarget.value));

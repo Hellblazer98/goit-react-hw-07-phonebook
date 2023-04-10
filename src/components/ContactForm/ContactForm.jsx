@@ -5,8 +5,9 @@ import * as Yup from 'yup';
 import { FormField, Form, ErrorMessage, SubmitBtn } from './ContactForm.styled';
 import { BsFillPersonPlusFill } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
-import { getContacts } from 'redux/selectors';
-import { addContact } from 'redux/contactSlice';
+import { selectContacts } from 'redux/selectors';
+import { addContact } from 'redux/operations';
+
 
 const ContactShema = Yup.object().shape({
   name: Yup.string()
@@ -21,7 +22,7 @@ const ContactShema = Yup.object().shape({
 
 
 export const ContactsForm = () => {
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   const onSubmit = (values, actions) => {
